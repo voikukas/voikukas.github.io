@@ -1,0 +1,46 @@
+# ✏️ PLACEHOLDER items for the Visuals page — replace with your own.
+#
+# Each item starts with "- title:". Items appear in the order listed.
+#
+#   title        (required)
+#   image        (required) the picture shown on the card and in the detail view.
+#                Put files in assets/img/visuals/. For a poster, use a JPG/PNG
+#                export of its first page as the image.
+#   category     (required) e.g. Illustration, Poster, Commission. A filter button
+#                is created automatically for every different category.
+#   year         (optional)
+#   medium       (optional) e.g. "Ink & watercolour" — for artwork
+#   event        (optional) e.g. "SNL 2025, Helsinki" — for posters and talks
+#   authors      (optional) shown under the title in the detail view
+#   pdf          (optional) path to a PDF in assets/pdf/. Adds a PDF tag on the
+#                card and an "Open PDF" button in the detail view.
+#   description  (optional) any length, Markdown allowed. Use "|" and indent the
+#                lines underneath, as in the examples. Blank line = new paragraph.
+#   links        (optional) extra buttons: a list of {label, url}
+#   alt          (optional) image description for screen readers (defaults to title)
+
+
+- title: Multilingual experience has no effect on statistical language learning
+  image: /assets/img/visuals/Poster_SNL2026_1.png
+  pdf: /assets/pdf/Poster_SNL2026.pdf
+  category: Poster
+  event: SNL 2026, Geneva
+  year: 2026
+  authors: Kaskivuo, S., Smalle, E., & Möttönen, R.
+  description: |
+    We recorded EEG while listeners heard sentences in a familiar and an
+    unfamiliar language, and measured how closely cortical activity
+    followed the syllable and phrase rhythm of each.
+
+    This field can hold several paragraphs: background, a short summary
+    of results, or credits. Long text scrolls inside the panel so the
+    image stays in view.
+
+- title: AI Competence Framework for Citizens
+  image: /assets/img/visuals/hero_viitekehys.png
+  category: Illustration
+  year: 2026
+  description: Work commissioned for the Finnish Ministry of Education and Culture / AIdemoc research project
+  links: {Framework on okm.fi,https://okm.fi/documents/1410845/258549992/AI%20Competence%20Framework%20for%20Citizens.pdf/1a2a81cc-08b0-b310-a2f9-6f3faf3e98d2?t=1774440889292}, {aidemoc.fi,https://aidemoc.fi/en/}
+
+

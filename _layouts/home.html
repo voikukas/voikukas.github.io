@@ -1,0 +1,39 @@
+---
+layout: default
+---
+<section class="intro">
+  <figure class="portrait">
+    <img src="{{ page.photo | relative_url }}" alt="{{ page.photo_alt | default: site.title }}" width="600" height="600">
+  </figure>
+
+  <div class="intro-text">
+    <h1>{{ page.greeting | default: site.title }}</h1>
+    <div class="prose">
+      {{ content }}
+    </div>
+
+    {% if page.contact %}
+    <ul class="contact">
+      {% for c in page.contact %}
+      <li>
+        <a href="{{ c.url }}"{% unless c.url contains 'mailto:' %} rel="me noopener"{% endunless %}>
+          <span class="contact-label">{{ c.label }}</span>
+          <span class="contact-text">{{ c.text }}</span>
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+  </div>
+</section>
+
+<section class="teasers">
+  <a class="teaser" href="{{ '/publications/' | relative_url }}">
+    <span class="teaser-title">Publications <span aria-hidden="true">→</span></span>
+    <span class="teaser-note">Articles, preprints and talks</span>
+  </a>
+  <a class="teaser teaser-accent" href="{{ '/visuals/' | relative_url }}">
+    <span class="teaser-title">Visuals <span aria-hidden="true">→</span></span>
+    <span class="teaser-note">Illustrations and posters</span>
+  </a>
+</section>

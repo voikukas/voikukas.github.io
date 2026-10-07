@@ -1,0 +1,67 @@
+---
+layout: default
+title: Visuals
+slug: visuals
+description: Illustrations, commissions and conference posters.
+---
+<header class="page-head">
+  <h1>Visuals</h1>
+  <p class="lede">Illustrations, commissions and conference posters. Click any item for details; posters open as PDFs.</p>
+</header>
+
+{% assign categories = site.data.visuals | map: "category" | uniq %}
+<div class="filters" role="group" aria-label="Show" hidden>
+  <button type="button" data-filter="all" aria-pressed="true">All</button>
+  {% for cat in categories %}
+  <button type="button" data-filter="{{ cat | slugify }}" aria-pressed="false">{{ cat }}</button>
+  {% endfor %}
+</div>
+
+<ul class="cards">
+  {% for item in site.data.visuals %}
+  {% capture meta %}{% if item.medium %}{{ item.medium }}{% elsif item.event %}{{ item.event }}{% endif %}{% if item.year %} · {{ item.year }}{% endif %}{% endcapture %}
+  <li class="card" data-category="{{ item.category | slugify }}">
+    <a class="card-open" href="{% if item.pdf %}{{ item.pdf | relative_url }}{% else %}{{ item.image | relative_url }}{% endif %}"
+       data-image="{{ item.image | relative_url }}" data-alt="{{ item.alt | default: item.title | escape }}">
+      <span class="card-thumb{% if item.pdf %} is-doc{% endif %}">
+        <img src="{{ item.image | relative_url }}" alt="{{ item.alt | default: item.title | escape }}" loading="lazy">
+        {% if item.pdf %}<span class="tag-pdf">PDF</span>{% endif %}
+      </span>
+      <span class="card-caption">
+        <span class="card-title">{{ item.title }}</span>
+        <span class="card-meta">{{ meta }}</span>
+      </span>
+    </a>
+    <template class="card-detail">
+      <div class="detail-tags">
+        {% if item.category %}<span class="tag tag-accent">{{ item.category }}</span>{% endif %}
+        {% if item.event %}<span class="tag">{{ item.event }}</span>{% endif %}
+        {% if item.medium %}<span class="tag">{{ item.medium }}</span>{% endif %}
+        {% if item.year %}<span class="tag">{{ item.year }}</span>{% endif %}
+      </div>
+      <h2 class="detail-title">{{ item.title }}</h2>
+      {% if item.authors %}<p class="detail-authors">{{ item.authors }}</p>{% endif %}
+      {% if item.description %}<div class="detail-text">{{ item.description | markdownify }}</div>{% endif %}
+      {% if item.pdf or item.links %}
+      <div class="detail-actions">
+        {% if item.pdf %}<a class="btn btn-accent" href="{{ item.pdf | relative_url }}" target="_blank" rel="noopener">Open PDF ↗</a>{% endif %}
+        {% for l in item.links %}<a class="btn" href="{{ l.url }}" target="_blank" rel="noopener">{{ l.label }}</a>{% endfor %}
+      </div>
+      {% endif %}
+    </template>
+  </li>
+  {% endfor %}
+</ul>
+
+<dialog class="viewer" aria-labelledby="viewer-title">
+  <div class="viewer-panel">
+    <div class="viewer-media"><img src="" alt=""></div>
+    <div class="viewer-body"></div>
+    <button class="viewer-close" type="button" aria-label="Close">×</button>
+  </div>
+  <div class="viewer-nav">
+    <button class="viewer-prev" type="button" aria-label="Previous">←</button>
+    <button class="viewer-next" type="button" aria-label="Next">→</button>
+    <span class="viewer-count" aria-live="polite"></span>
+  </div>
+</dialog>

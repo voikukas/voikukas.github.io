@@ -1,0 +1,37 @@
+---
+layout: default
+title: Publications
+slug: publications
+description: Peer-reviewed articles, preprints and conference presentations.
+---
+<header class="page-head">
+  <h1>Publications</h1>
+  <p class="lede">Articles, preprints and conference contributions.</p>
+</header>
+
+{% assign by_year = site.data.publications | group_by: "year" | sort: "name" | reverse %}
+{% for group in by_year %}
+<section class="pub-year">
+  <h2 class="year">{{ group.name }}</h2>
+  <ol class="pubs">
+    {% for p in group.items %}
+    {% assign authors = p.authors %}
+    {% for name in site.author_names %}
+      {% capture bold %}<strong>{{ name }}</strong>{% endcapture %}
+      {% assign authors = authors | replace: name, bold %}
+    {% endfor %}
+    <li class="pub">
+      {% if p.type %}<span class="pub-type pub-type-{{ p.type | slugify }}">{{ p.type }}</span>{% endif %}
+      <p class="pub-title">{{ p.title }}</p>
+      <p class="pub-authors">{{ authors }}</p>
+      <p class="pub-venue"><em>{{ p.venue }}</em>{% if p.details %}, {{ p.details }}{% endif %}</p>
+      {% if p.links %}
+      <p class="pub-links">
+        {% for l in p.links %}<a href="{{ l.url }}">{{ l.label }}</a>{% endfor %}
+      </p>
+      {% endif %}
+    </li>
+    {% endfor %}
+  </ol>
+</section>
+{% endfor %}

@@ -1,0 +1,21 @@
+# ✏️ PLACEHOLDER publications — replace with your own.
+#
+# Each entry starts with "- title:". Fields:
+#   title    (required)
+#   authors  (required) — your name is highlighted automatically
+#                         if it matches one of `author_names` in _config.yml
+#   venue    (required) — journal, conference or server
+#   year     (required) — entries are grouped by year, newest first
+#   details  (optional) — volume, pages, "in press", etc.
+#   type     (optional) — e.g. Article, Preprint, Talk, Poster
+#   links    (optional) — any number of {label, url} pairs
+
+- title: "Prosody enhances learning of statistical dependencies from continuous speech streams in adults"
+  authors: "Kuuluvainen, S. & Kaskivuo, S., Vainio, M., Smalle, E., & Möttönen, R."
+  venue: "Cognition"
+  details: "262, 106169"
+  year: 2025
+  type: Article
+  links:
+    - label: DOI
+      url: https://doi.org/10.1016/j.cognition.2025.106169
