@@ -5,7 +5,7 @@ greeting: Hi, I'm Saara.
 
 # Your profile picture. Replace the file in assets/img/ and update the name here.
 # A square image of at least 600 × 600 px works best.
-photo: /assets/img/saara.png
+photo: /assets/img/saara.PNG
 photo_alt: Portrait of Saara Kaskivuo
 
 # Contact links shown under the introduction. Add, remove or reorder freely.
